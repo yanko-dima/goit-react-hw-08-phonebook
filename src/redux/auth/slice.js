@@ -12,11 +12,13 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    // Register phonebook
     [register.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+
     [logIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
