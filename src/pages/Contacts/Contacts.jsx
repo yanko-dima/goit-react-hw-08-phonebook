@@ -8,20 +8,21 @@ import { selectLoading } from 'redux/contacts/selectors';
 
 export default function Tasks() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectLoading);
+  // const isLoading = useSelector(selectLoading);
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
   return (
     <>
-      <Helmet>
+      <p>Contacts</p>
+      {/* <Helmet>
         <title>Your tasks</title>
       </Helmet>
       <ContactEditor />
       <div>{isLoading && 'Request in progress...'}</div>
-      <ContactsList />
+      <ContactsList /> */}
     </>
   );
 }
