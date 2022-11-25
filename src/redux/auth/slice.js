@@ -19,16 +19,21 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
     },
 
+    // Login phonebook
     [logIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+
+    // LogOut phonebook
     [logOut.fulfilled](state) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
     },
+
+    // Refresh user
     [refreshUser.pending](state) {
       state.isRefreshing = true;
     },
