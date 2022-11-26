@@ -2,16 +2,16 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectAllContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 import { Button } from 'components/Button/Button';
 import css from 'components/ContactsForm/ContactsForm.module.css';
 
 export const ContactsForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectAllContacts);
 
   const dispatch = useDispatch();
 
@@ -22,8 +22,8 @@ export const ContactsForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         return;
@@ -38,17 +38,16 @@ export const ContactsForm = () => {
     );
 
     if (checkedContact) {
-      // alert(`${name} is already in contacts`);
-      toast.error(`Name: ${name} or Phone: ${phone} is already in contacts`);
+      toast.error(`Name: ${name} or Number: ${number} is already in contacts`);
     } else {
-      dispatch(addContact({ name, phone }));
+      dispatch(addContact({ name, number }));
       reset();
     }
   };
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -73,8 +72,8 @@ export const ContactsForm = () => {
         <input
           className={css.input}
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           onChange={handleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

@@ -4,7 +4,7 @@ import { deleteContact } from 'redux/contacts/operations';
 import { MdClose } from 'react-icons/md';
 import css from 'components/ContactItem/ContactItem.module.css';
 
-export const ContactItem = ({ id, name, phone }) => {
+export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
   const normaliseName = `${name[0].toUpperCase()}${name.slice(1)}`;
 
@@ -14,7 +14,7 @@ export const ContactItem = ({ id, name, phone }) => {
     <li className={css.contacts__item}>
       <div className={css.wrapper}>
         <p className={css.text}>
-          {normaliseName} | {phone}
+          {normaliseName} | {number}
         </p>
         <button className={css.btn} onClick={handleDelete}>
           <MdClose size={24} />
@@ -26,6 +26,6 @@ export const ContactItem = ({ id, name, phone }) => {
 
 ContactItem.propTypes = {
   name: PropTypes.string,
-  phone: PropTypes.string,
+  number: PropTypes.string,
   id: PropTypes.string,
 };

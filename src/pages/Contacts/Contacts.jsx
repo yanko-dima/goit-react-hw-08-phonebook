@@ -2,27 +2,33 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { ContactsList } from 'components/ContactsList/ContactsList';
-import { ContactEditor } from 'components/ContactEditor/ContactEditor';
 import { fetchContacts } from 'redux/contacts/operations';
-import { selectLoading } from 'redux/contacts/selectors';
+import { selectError, selectLoading } from 'redux/contacts/selectors';
+import { SubTitle, Title } from 'components/Title/Title';
+import { ContactsForm } from 'components/ContactsForm/ContactsForm';
+import { Filter } from 'components/Filter/Filter';
 
 export default function Tasks() {
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectLoading);
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <>
-      <p>Contacts</p>
-      {/* <Helmet>
-        <title>Your tasks</title>
+      <Helmet>
+        <title>Your contacts</title>
       </Helmet>
-      <ContactEditor />
-      <div>{isLoading && 'Request in progress...'}</div>
-      <ContactsList /> */}
+      <Title>Phone Book</Title>
+      <ContactsForm />
+      <SubTitle>Contacts</SubTitle>
+      <Filter />
+      {isLoading && !error && <p>Loading ...</p>}
+      {error && !isLoading && <p>{error}</p>}
+      <ContactsList />
     </>
   );
 }

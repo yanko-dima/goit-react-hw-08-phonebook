@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import { selectAllContacts, selectFilterQuery } from 'redux/contacts/selectors';
+import { selectAllContacts } from 'redux/contacts/selectors';
+import { selectFilterQuery } from 'redux/filter/selectors';
 import css from './ContactsList.module.css';
 
 export const ContactsList = () => {
@@ -19,8 +20,8 @@ export const ContactsList = () => {
 
   return (
     <ul className={css.contacts__list}>
-      {getVisibleContacts().map(({ id, name, phone }) => (
-        <ContactItem key={id} id={id} name={name} phone={phone} />
+      {getVisibleContacts().map(({ id, name, number }) => (
+        <ContactItem key={id} id={id} name={name} number={number} />
       ))}
     </ul>
   );
