@@ -1,15 +1,35 @@
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 import css from './AuthNav.module.css';
+import { Stack } from '@mui/system';
 
 export const AuthNav = () => {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+
+  const hahdleRegisterClick = () => {
+    navigate('/register');
+  };
+
   return (
     <div>
-      <NavLink className={css.link} to="/register">
-        Register
-      </NavLink>
-      <NavLink className={css.link} to="/login">
-        Log In
-      </NavLink>
+      <Stack direction="row" spacing={3}>
+        <Button
+          className={css.button}
+          color="inherit"
+          variant="outlined"
+          size="small"
+          onClick={handleLoginClick}
+        >
+          Log In
+        </Button>
+        <Button variant="contained" size="small" onClick={hahdleRegisterClick}>
+          Register
+        </Button>
+      </Stack>
     </div>
   );
 };
