@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { MdClose } from 'react-icons/md';
+import DeleteIcon from '@mui/icons-material/Delete';
 import css from 'components/ContactItem/ContactItem.module.css';
+import { IconButton } from '@mui/material';
 
 export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -16,9 +17,10 @@ export const ContactItem = ({ id, name, number }) => {
         <p className={css.text}>
           {normaliseName} | {number}
         </p>
-        <button className={css.btn} onClick={handleDelete}>
-          <MdClose size={24} />
-        </button>
+
+        <IconButton aria-label="delete" onClick={handleDelete} size="large">
+          <DeleteIcon />
+        </IconButton>
       </div>
     </li>
   );

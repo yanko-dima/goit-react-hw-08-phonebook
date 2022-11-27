@@ -18,7 +18,6 @@ export const AuthNav = () => {
     <div>
       <Stack direction="row" spacing={3}>
         <Button
-          className={css.button}
           color="inherit"
           variant="outlined"
           size="small"

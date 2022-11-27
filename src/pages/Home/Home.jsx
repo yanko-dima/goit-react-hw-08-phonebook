@@ -11,20 +11,6 @@ export default function Home() {
           💁‍♀️
         </span>
       </Typography>
-      {/* <h1 className={css.title}>
-        Phonebook welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1> */}
-      {/* <Paper
-        style={{
-          backgroundImage:
-            'url(https://www.purrweb.com/images/fitforce-header-bg.svg)',
-        }}
-      >
-        <Container maxWith="960px"></Container>
-      </Paper> */}
     </div>
   );
 }
