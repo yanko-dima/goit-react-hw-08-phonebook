@@ -8,7 +8,7 @@ import { SubTitle, Title } from 'components/Title/Title';
 import { ContactsForm } from 'components/ContactsForm/ContactsForm';
 import { Filter } from 'components/Filter/Filter';
 
-export default function Tasks() {
+export default function Contacts() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
