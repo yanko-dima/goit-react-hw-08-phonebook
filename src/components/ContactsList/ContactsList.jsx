@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
+import { List } from '@mui/material';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { selectAllContacts } from 'redux/contacts/selectors';
 import { selectFilterQuery } from 'redux/filter/selectors';
-import css from './ContactsList.module.css';
 
 export const ContactsList = () => {
   const contacts = useSelector(selectAllContacts);
@@ -19,10 +19,10 @@ export const ContactsList = () => {
   };
 
   return (
-    <ul className={css.contacts__list}>
+    <List>
       {getVisibleContacts().map(({ id, name, number }) => (
         <ContactItem key={id} id={id} name={name} number={number} />
       ))}
-    </ul>
+    </List>
   );
 };
