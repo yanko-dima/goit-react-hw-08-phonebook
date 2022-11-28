@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { Container, Typography } from '@mui/material';
+import { CircularProgress, Container, Typography } from '@mui/material';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectError, selectLoading } from 'redux/contacts/selectors';
@@ -31,7 +31,7 @@ export default function Contacts() {
           Contacts
         </Typography>
         <Filter />
-        {isLoading && !error && <p>Loading ...</p>}
+        {isLoading && !error && <CircularProgress />}
         {error && !isLoading && <p>{error}</p>}
         <ContactsList />
       </Container>

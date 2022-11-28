@@ -8,6 +8,10 @@ const initialState = {
   isRefreshing: false,
 };
 
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -18,6 +22,7 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [register.rejected]: handleRejected,
 
     // Login phonebook
     [logIn.fulfilled](state, action) {
@@ -42,9 +47,7 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },
-    [refreshUser.rejected](state) {
-      state.isRefreshing = false;
-    },
+    [refreshUser.rejected]: handleRejected,
   },
 });
 

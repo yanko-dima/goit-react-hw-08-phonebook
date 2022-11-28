@@ -6,6 +6,7 @@ import { Layout } from './Layout/Layout';
 import { useAuth } from 'hooks';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { CircularProgress } from '@mui/material';
 
 const HomePage = lazy(() => import('pages/Home/Home'));
 const RegisterPage = lazy(() => import('pages/Register/Register'));
@@ -21,7 +22,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <p>Refreshing user data ... </p>
+    <CircularProgress />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

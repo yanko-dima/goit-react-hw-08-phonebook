@@ -18,8 +18,6 @@ export const ContactsForm = () => {
   const handleChange = e => {
     const { name, value } = e.target;
 
-    console.log(name);
-
     switch (name) {
       case 'name':
         setName(value);
@@ -42,6 +40,7 @@ export const ContactsForm = () => {
     if (checkedContact) {
       toast.error(`Name: ${name} or Number: ${number} is already in contacts`);
     } else {
+      toast.success(`Contact ${name} successful added`);
       dispatch(addContact({ name, number }));
       reset();
     }
