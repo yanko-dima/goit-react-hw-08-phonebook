@@ -30,7 +30,6 @@ export const LoginForm = () => {
           Password
           <input type="password" name="password" />
         </label>
-        {/* <button type="submit">Log In</button> */}
         <Button variant="contained" type="submit">
           Log In
         </Button>

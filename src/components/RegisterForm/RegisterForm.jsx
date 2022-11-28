@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import css from './RegisterForm.module.css';
@@ -32,6 +33,12 @@ export const RegisterForm = () => {
         Password
         <input type="password" name="password" />
       </label>
+      <TextField
+        id="outlined-password-input"
+        label="Password"
+        type="password"
+        autoComplete="off"
+      />
       <button type="submit">Register</button>
     </form>
   );

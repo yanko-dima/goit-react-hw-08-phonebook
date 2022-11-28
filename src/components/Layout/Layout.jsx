@@ -8,7 +8,7 @@ export const Layout = () => {
   return (
     <div className={css.wrapper}>
       <AppBar />
-      <main>
+      <main className={css.main}>
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>

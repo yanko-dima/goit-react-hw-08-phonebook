@@ -22,11 +22,11 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <Typography variant="h3" component="h1" color="inherit" gutterBottom>
+      <Typography variant="h5" component="h1" color="inherit" gutterBottom>
         Phone Book
       </Typography>
       <ContactsForm />
-      <Typography variant="h4" component="h2" color="inherit" gutterBottom>
+      <Typography variant="h6" component="h2" color="inherit" gutterBottom>
         Contacts
       </Typography>
       <Filter />

@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { TextField } from '@mui/material';
 import { changeFilter } from 'redux/filter/slice';
 import { selectFilterQuery } from 'redux/filter/selectors';
-import css from 'components/Filter/Filter.module.css';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -14,17 +14,18 @@ export const Filter = () => {
   };
 
   return (
-    <div className={css.wrapper}>
-      <label className={css.label}>
-        <span className={css.label}>{'Find contacts by name'}</span>
-        <input
-          className={css.field}
-          type="text"
-          name="filter"
-          value={filterValue}
-          onChange={handleFilterChange}
-        />
-      </label>
-    </div>
+    <TextField
+      sx={{
+        m: '0 0 20px 0',
+      }}
+      fullWidth
+      label="Find contacts by name or phone"
+      id="search-contact"
+      inputProps={{ 'aria-label': 'Find contacts by name or phone' }}
+      type="text"
+      name="filter"
+      value={filterValue}
+      onChange={handleFilterChange}
+    />
   );
 };

@@ -5,5 +5,8 @@
 }
 
 .username {
-  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: inherit;
 }

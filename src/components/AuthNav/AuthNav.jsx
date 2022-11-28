@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
-import css from './AuthNav.module.css';
 import { Stack } from '@mui/system';
 
 export const AuthNav = () => {
@@ -16,7 +15,7 @@ export const AuthNav = () => {
 
   return (
     <div>
-      <Stack direction="row" spacing={3}>
+      <Stack direction="row" spacing={2}>
         <Button
           color="inherit"
           variant="outlined"
