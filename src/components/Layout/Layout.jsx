@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router-dom';
-import { CircularProgress } from '@mui/material';
 import { ToastContainer } from 'react-toastify';
 import { AppBar } from 'components/AppBar/AppBar';
 import { Suspense } from 'react';
@@ -10,7 +9,7 @@ export const Layout = () => {
     <div className={css.wrapper}>
       <AppBar />
       <main className={css.main}>
-        <Suspense fallback={<CircularProgress />}>
+        <Suspense fallback={null}>
           <Outlet />
         </Suspense>
       </main>
