@@ -15,9 +15,6 @@ export const Filter = () => {
 
   return (
     <TextField
-      sx={{
-        m: '0 0 20px 0',
-      }}
       fullWidth
       label="Find contacts by name or phone"
       id="search-contact"

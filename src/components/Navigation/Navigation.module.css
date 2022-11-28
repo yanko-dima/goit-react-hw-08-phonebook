@@ -16,7 +16,3 @@
 .link:not(:last-child) {
   margin-right: 15px;
 }
-
-.link.active {
-  color: #e84a5f;
-}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectError, selectLoading } from 'redux/contacts/selectors';
@@ -22,17 +22,19 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <Typography variant="h5" component="h1" color="inherit" gutterBottom>
-        Phone Book
-      </Typography>
-      <ContactsForm />
-      <Typography variant="h6" component="h2" color="inherit" gutterBottom>
-        Contacts
-      </Typography>
-      <Filter />
-      {isLoading && !error && <p>Loading ...</p>}
-      {error && !isLoading && <p>{error}</p>}
-      <ContactsList />
+      <Container fixed>
+        <Typography variant="h5" component="h1" color="inherit" gutterBottom>
+          Phone Book
+        </Typography>
+        <ContactsForm />
+        <Typography variant="h6" component="h2" color="inherit" gutterBottom>
+          Contacts
+        </Typography>
+        <Filter />
+        {isLoading && !error && <p>Loading ...</p>}
+        {error && !isLoading && <p>{error}</p>}
+        <ContactsList />
+      </Container>
     </>
   );
 }

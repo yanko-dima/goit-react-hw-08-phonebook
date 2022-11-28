@@ -1,4 +1,4 @@
-import { Button, Container } from '@mui/material';
+import { Button, Container, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import css from './LoginForm.module.css';
@@ -19,21 +19,28 @@ export const LoginForm = () => {
   };
 
   return (
-    <>
-      <Container fixed></Container>
+    <Container fixed>
       <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-        <label className={css.label}>
-          Email
-          <input type="email" name="email" />
-        </label>
-        <label className={css.label}>
-          Password
-          <input type="password" name="password" />
-        </label>
+        <TextField
+          id="outlined-required-email"
+          label="email"
+          type="email"
+          name="email"
+          autoComplete="off"
+          required
+        />
+        <TextField
+          id="outlined-required-password"
+          label="password"
+          type="emapasswordil"
+          name="password"
+          autoComplete="off"
+          required
+        />
         <Button variant="contained" type="submit">
           Log In
         </Button>
       </form>
-    </>
+    </Container>
   );
 };
