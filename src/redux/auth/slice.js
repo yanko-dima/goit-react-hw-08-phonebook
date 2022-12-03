@@ -6,10 +6,12 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isError: false,
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
+  state.isError = action.payload;
 };
 
 const authSlice = createSlice({
@@ -30,6 +32,7 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [logIn.rejected]: handleRejected,
 
     // LogOut phonebook
     [logOut.fulfilled](state) {

@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -11,6 +13,10 @@ const setAuthHeader = token => {
 // Utility to remove JWT
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
+};
+
+const opnAlerError = message => {
+  toast.error(message);
 };
 
 /*
@@ -26,6 +32,7 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      opnAlerError('This user is already registered! Please try again.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -44,6 +51,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      opnAlerError('Wrong email or password! Please try again.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

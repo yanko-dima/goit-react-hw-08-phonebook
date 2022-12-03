@@ -3,10 +3,17 @@ import { logOut } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 import css from './UserMenu.module.css';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user } = useAuth();
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+    navigate('/login', { replace: true });
+  };
 
   return (
     <div className={css.wrapper}>
@@ -15,7 +22,7 @@ export const UserMenu = () => {
         color="inherit"
         variant="outlined"
         size="small"
-        onClick={() => dispatch(logOut())}
+        onClick={handleLogOut}
       >
         Logout
       </Button>

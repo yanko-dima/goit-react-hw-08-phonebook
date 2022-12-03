@@ -1,0 +1,16 @@
+.wrapper {
+  min-height: calc(70vh - 50px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.subTitle {
+  margin: 0;
+}
