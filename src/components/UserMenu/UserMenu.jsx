@@ -12,7 +12,7 @@ export const UserMenu = () => {
 
   const handleLogOut = () => {
     dispatch(logOut());
-    navigate('/login', { replace: true });
+    navigate('/', { replace: true });
   };
 
   return (
